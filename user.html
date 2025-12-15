@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital QR Code</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="profile-card">
+    <h1 id="name">Loading...</h1>
+    <p id="username"></p>
+    <div id="links" class="links"></div>
+  </div>
+
+  <!-- UPI Selection Overlay -->
+  <div id="upiOverlay" class="upi-overlay">
+    <div class="upi-overlay-content">
+      <div class="upi-overlay-header">
+        <h3 id="upiOverlayTitle">Select UPI ID</h3>
+        <button class="upi-close-btn" onclick="closeUPIOverlay()">&times;</button>
+      </div>
+      <div class="upi-options" id="upiOptions">
+        <!-- UPI options will be populated here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Phone Selection Overlay -->
+  <div id="phoneOverlay" class="upi-overlay">
+    <div class="upi-overlay-content">
+      <div class="upi-overlay-header">
+        <h3 id="phoneOverlayTitle">Select Phone Number</h3>
+        <button class="upi-close-btn" onclick="closePhoneOverlay()">&times;</button>
+      </div>
+      <div class="upi-options" id="phoneOptions">
+        <!-- Phone options will be populated here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Email Selection Overlay -->
+  <div id="emailOverlay" class="upi-overlay">
+    <div class="upi-overlay-content">
+      <div class="upi-overlay-header">
+        <h3 id="emailOverlayTitle">Select Email Address</h3>
+        <button class="upi-close-btn" onclick="closeEmailOverlay()">&times;</button>
+      </div>
+      <div class="upi-options" id="emailOptions">
+        <!-- Email options will be populated here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Google Maps Selection Overlay -->
+  <div id="gmapsOverlay" class="upi-overlay">
+    <div class="upi-overlay-content">
+      <div class="upi-overlay-header">
+        <h3 id="gmapsOverlayTitle">Select Google Maps Option</h3>
+        <button class="upi-close-btn" onclick="closeGmapsOverlay()">&times;</button>
+      </div>
+      <div class="upi-options" id="gmapsOptions">
+        <!-- Google Maps options will be populated here -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Complete platform configuration with 50+ platforms
+    const platformConfig = {
+      // Professional & Business Networks
+      linkedin: { icon: 'linkedin', label: 'LinkedIn', color: '#0077B5' },
+      xing: { icon: 'xing', label: 'Xing', color: '#006567' },
+      angellist: { icon: 'angellist', label: 'AngelList', color: '#000000' },
+
+      // Creative & Design Portfolios
+      behance: { icon: 'behance', label: 'Behance', color: '#1769FF' },
+      dribbble: { icon: 'dribbble', label: 'Dribbble', color: '#EA4C89' },
+      figma: { icon: 'figma', label: 'Figma', color: '#F24E1E' },
+      portfolio: { icon: 'portfolio', label: 'Portfolio', color: '#1473E6' },
+
+      // Social Media Platforms
+      instagram: { icon: 'instagram', label: 'Instagram', color: '#E4405F' },
+      twitter: { icon: 'twitter', label: 'Twitter', color: '#1DA1F2' },
+      facebook: { icon: 'facebook', label: 'Facebook', color: '#1877F2' },
+      threads: { icon: 'threads', label: 'Threads', color: '#000000' },
+      mastodon: { icon: 'mastodon', label: 'Mastodon', color: '#6364FF' },
+      bluesky: { icon: 'bluesky', label: 'BlueSky', color: '#1285FE' },
+
+      // Video Platforms
+      youtube: { icon: 'youtube', label: 'YouTube', color: '#FF0000' },
+      tiktok: { icon: 'tiktok', label: 'TikTok', color: '#000000' },
+      vimeo: { icon: 'vimeo', label: 'Vimeo', color: '#1AB7EA' },
+      twitch: { icon: 'twitch', label: 'Twitch', color: '#9146FF' },
+
+      // Music & Audio Platforms
+      spotify: { icon: 'spotify', label: 'Spotify', color: '#1DB954' },
+      soundcloud: { icon: 'soundcloud', label: 'SoundCloud', color: '#FF5500' },
+      applemusic: { icon: 'applemusic', label: 'Apple Music', color: '#FA243C' },
+      bandcamp: { icon: 'bandcamp', label: 'Bandcamp', color: '#1DA0C3' },
+
+      // Developer & Tech Communities
+      github: { icon: 'github', label: 'GitHub', color: '#181717' },
+      gitlab: { icon: 'gitlab', label: 'GitLab', color: '#FC6D26' },
+      bitbucket: { icon: 'bitbucket', label: 'Bitbucket', color: '#0052CC' },
+      stackoverflow: { icon: 'stackoverflow', label: 'Stack Overflow', color: '#F58025' },
+      devto: { icon: 'devto', label: 'Dev.to', color: '#0A0A0A' },
+      codepen: { icon: 'codepen', label: 'CodePen', color: '#000000' },
+
+      // Messaging & Communication
+      whatsapp: { icon: 'whatsapp', label: 'WhatsApp', color: '#25D366' },
+      telegram: { icon: 'telegram', label: 'Telegram', color: '#26A5E4' },
+      discord: { icon: 'discord', label: 'Discord', color: '#5865F2' },
+      signal: { icon: 'signal', label: 'Signal', color: '#3A76F0' },
+      skype: { icon: 'skype', label: 'Skype', color: '#00AFF0' },
+      slack: { icon: 'slack', label: 'Slack', color: '#4A154B' },
+
+      // Gaming Platforms
+      steam: { icon: 'steam', label: 'Steam', color: '#171A21' },
+      xbox: { icon: 'xbox', label: 'Xbox', color: '#107C10' },
+      playstation: { icon: 'playstation', label: 'PlayStation', color: '#003087' },
+      nintendo: { icon: 'nintendo', label: 'Nintendo', color: '#E60012' },
+
+      // Creator & Monetization
+      patreon: { icon: 'patreon', label: 'Patreon', color: '#FF424D' },
+      kofi: { icon: 'kofi', label: 'Ko-fi', color: '#FF5E5B' },
+      buymeacoffee: { icon: 'buymeacoffee', label: 'Buy Me a Coffee', color: '#FFDD00' },
+      substack: { icon: 'substack', label: 'Substack', color: '#FF6719' },
+
+      // E-commerce & Shopping
+      etsy: { icon: 'etsy', label: 'Etsy', color: '#F16521' },
+      amazon: { icon: 'amazon', label: 'Amazon', color: '#FF9900' },
+      shopify: { icon: 'shopify', label: 'Shopify', color: '#96BF48' },
+      flipkart: { icon: 'flipkart', label: 'Flipkart', color: '#FF9900' },
+
+      // Photography & Visual Arts
+      flickr: { icon: 'flickr', label: 'Flickr', color: '#0063DC' },
+      '500px': { icon: '500px', label: '500px', color: '#0099E5' },
+      unsplash: { icon: 'unsplash', label: 'Unsplash', color: '#000000' },
+
+      // Blogging & Writing
+      medium: { icon: 'medium', label: 'Medium', color: '#000000' },
+      wordpress: { icon: 'wordpress', label: 'WordPress', color: '#21759B' },
+      blogger: { icon: 'blogger', label: 'Blogger', color: '#FF5722' },
+
+      // Other Social Platforms
+      pinterest: { icon: 'pinterest', label: 'Pinterest', color: '#E60023' },
+      reddit: { icon: 'reddit', label: 'Reddit', color: '#FF4500' },
+      snapchat: { icon: 'snapchat', label: 'Snapchat', color: '#FFFC00' },
+      tumblr: { icon: 'tumblr', label: 'Tumblr', color: '#36465D' },
+      bereal: { icon: 'bereal', label: 'BeReal', color: '#000000' },
+      clubhouse: { icon: 'clubhouse', label: 'Clubhouse', color: '#FF6B35' },
+      nextdoor: { icon: 'nextdoor', label: 'Nextdoor', color: '#00B04F' },
+      strava: { icon: 'strava', label: 'Strava', color: '#FC4C02' },
+
+      // Productivity & Tools
+      linktree: { icon: 'linktree', label: 'Linktree', color: '#39E09B' },
+      notion: { icon: 'notion', label: 'Notion', color: '#000000' },
+      calendly: { icon: 'calendly', label: 'Calendly', color: '#006BFF' },
+
+      // Payment & Donation Platforms
+      paypal: { icon: 'paypal', label: 'PayPal', color: '#0070BA' },
+      gpay: { icon: 'gpay', label: 'Google Pay', color: '#4285F4', isUPI: true },
+      phonepe: { icon: 'phonepe', label: 'PhonePe', color: '#5F259F', isUPI: true },
+      paytm: { icon: 'paytm', label: 'PayTM', color: '#00BAF2', isUPI: true },
+      upi: { icon: 'upi', label: 'UPI', color: '#00BAF2', isUPI: true },
+      cashapp: { icon: 'cashapp', label: 'Cash App', color: '#00D632' },
+
+      // Business & Professional Tools
+      crunchbase: { icon: 'crunchbase', label: 'Crunchbase', color: '#0288D1' },
+      glassdoor: { icon: 'glassdoor', label: 'Glassdoor', color: '#0CAA41' },
+      indeed: { icon: 'indeed', label: 'Indeed', color: '#2164F3' },
+
+      // Education & Learning
+      coursera: { icon: 'coursera', label: 'Coursera', color: '#0056D3' },
+      udemy: { icon: 'udemy', label: 'Udemy', color: '#A435F0' },
+      skillshare: { icon: 'skillshare', label: 'Skillshare', color: '#00FF88' },
+      khanacademy: { icon: 'khanacademy', label: 'Khan Academy', color: '#14BF96' },
+
+      // Contact
+      email: { icon: 'email', label: 'Email', color: '#667eea', isEmail: true },
+      phone: { icon: 'phone', label: 'Phone', color: '#667eea', isTel: true },
+      website: { icon: 'website', label: 'Website', color: '#667eea' },
+      menucard: { icon: 'menu-card', label: 'Menu Card', color: '#667eea' },
+      location: { icon: 'gmaps', label: 'Location', color: '#4285F4', isGmaps: true },
+      googleReview: { icon: 'gmaps', label: 'Google Review', color: '#4285F4', isGmaps: true }
+    };
+
+    async function loadUser() {
+      const params = new URLSearchParams(window.location.search);
+      const username = params.get('u');
+      const userCode = params.get('code');
+
+      if (!username) {
+        document.body.innerHTML = "<div class='profile-card'><h2>🔒 Access Denied</h2><p>Invalid link. Please scan the QR code.</p></div>";
+        return;
+      }
+
+      if (!userCode) {
+        document.body.innerHTML = "<div class='profile-card'><h2>🔒 Access Denied</h2><p>Security code required. Please scan the QR code.</p></div>";
+        return;
+      }
+
+      try {
+        // List of data files to search
+        const dataFiles = [
+          './data/personal.json',
+          './data/clients.json',
+          // Add more files here as needed: './data/users_location2.json', etc.
+        ];
+
+        let user = null;
+
+        // Search for user across all data files
+        for (const file of dataFiles) {
+          try {
+            const res = await fetch(file);
+            if (res.ok) {
+              const users = await res.json();
+              user = users.find(u => u.username === username && u.userCode === userCode);
+              if (user) {
+                console.log(`✅ Found user in ${file}`);
+                break; // Stop searching once user is found
+              }
+            }
+          } catch (fileErr) {
+            console.log(`⚠️ Error searching ${file}:`, fileErr.message);
+            // Continue searching other files
+          }
+        }
+
+        if (!user) {
+          document.body.innerHTML = "<div class='profile-card'><h2>🔒 Access Denied</h2><p>Invalid link or security code. Please scan the correct QR code.</p></div>";
+          return;
+        }
+
+        // Sanitize user input to prevent XSS
+        function sanitizeInput(input) {
+          if (typeof input !== 'string') return '';
+          return input.replace(/[<>\"'&]/g, function(match) {
+            const escapeMap = {
+              '<': '&lt;',
+              '>': '&gt;',
+              '"': '&quot;',
+              "'": '&#x27;',
+              '&': '&amp;'
+            };
+            return escapeMap[match];
+          });
+        }
+
+        const sanitizedName = sanitizeInput(user.fullname);
+        const sanitizedUsername = sanitizeInput(user.username);
+
+        document.title = sanitizedName;
+        document.getElementById("name").innerText = sanitizedName;
+        document.getElementById("username").innerText = "@" + sanitizedUsername;
+
+        const linksDiv = document.getElementById("links");
+        linksDiv.innerHTML = "";
+
+        let linkCount = 0;
+
+        // Define platform categories
+        const platformCategories = {
+          '💼 Professional': ['linkedin', 'xing', 'angellist', 'crunchbase', 'glassdoor', 'indeed'],
+          '🎨 Design & Creative': ['behance', 'dribbble', 'figma', 'portfolio'],
+          '📱 Social Media': ['instagram', 'twitter', 'facebook', 'threads', 'mastodon', 'bluesky'],
+          '🎥 Video & Streaming': ['youtube', 'tiktok', 'vimeo', 'twitch'],
+          '🎵 Music & Audio': ['spotify', 'soundcloud', 'applemusic', 'bandcamp'],
+          '💻 Developer & Tech': ['github', 'gitlab', 'bitbucket', 'stackoverflow', 'devto', 'codepen'],
+          '💬 Messaging & Chat': ['whatsapp', 'telegram', 'discord', 'signal', 'skype', 'slack'],
+          '🎮 Gaming': ['steam', 'xbox', 'playstation', 'nintendo'],
+          '💰 Creator & Monetization': ['patreon', 'kofi', 'buymeacoffee', 'substack'],
+          '🛒 E-commerce & Shopping': ['etsy', 'amazon', 'shopify', 'flipkart'],
+          '📸 Photography & Visual': ['flickr', '500px', 'unsplash'],
+          '✍️ Blogging & Writing': ['medium', 'wordpress', 'blogger'],
+          '🌐 Other Social': ['pinterest', 'reddit', 'snapchat', 'tumblr', 'bereal', 'clubhouse', 'nextdoor', 'strava'],
+          '🔧 Productivity & Tools': ['linktree', 'notion', 'calendly'],
+          '💳 Payment & Donation': ['paypal', 'gpay', 'phonepe', 'paytm', 'upi', 'cashapp'],
+          '🎓 Education & Learning': ['coursera', 'udemy', 'skillshare', 'khanacademy'],
+          '📞 Contact': ['email', 'phone', 'website', 'menucard', 'location', 'googleReview']
+        };
+
+        // Create categorized links
+        Object.entries(platformCategories).forEach(([categoryName, platforms]) => {
+          const categoryLinks = [];
+
+          platforms.forEach(platform => {
+            const config = platformConfig[platform];
+            let url = user[platform];
+
+            if (url && url.trim()) {
+              linkCount++;
+
+              const iconPath = `./assets/icons/${config.icon}.svg`;
+
+              // Handle different link types
+              if (config.isEmail) {
+                // Check if there are multiple email addresses (comma-separated)
+                const emailAddresses = url.split(',').map(email => email.trim()).filter(email => email);
+
+                if (emailAddresses.length > 1) {
+                  // Multiple email addresses - show overlay option
+                  categoryLinks.push(`
+                    <div class="social-link email-link" onclick="showEmailOverlay('${emailAddresses.join('|')}', '${config.label}')" title="Click to select ${config.label} address">
+                      <img src="${iconPath}" alt="${config.label}" 
+                           onerror="this.src='./assets/icons/default.svg'" 
+                           style="image-rendering: crisp-edges; -webkit-image-rendering: crisp-edges;">
+                      <span class="link-label">${config.label}</span>
+                      <span class="upi-count-top-right">${emailAddresses.length}</span>
+                    </div>
+                  `);
+                } else {
+                  // Single email address - direct mailto
+                  url = `mailto:${url}`;
+                  categoryLinks.push(`
+                    <a href="${url}" target="_blank" rel="noopener" title="${config.label}" class="social-link">
+                      <img src="${iconPath}" alt="${config.label}" 
+                           onerror="this.src='./assets/icons/default.svg'" 
+                           style="image-rendering: crisp-edges; -webkit-image-rendering: crisp-edges;">
+                      <span class="link-label">${config.label}</span>
+                    </a>
+                  `);
+                }
+                return; // Skip the regular link creation
+              } else if (config.isTel) {
+                // Check if there are multiple phone numbers (comma-separated)
+                const phoneNumbers = url.split(',').map(num => num.trim()).filter(num => num);
+
+                if (phoneNumbers.length > 1) {
+                  // Multiple phone numbers - show overlay option
+                  categoryLinks.push(`
+                    <div class="social-link phone-link" onclick="showPhoneOverlay('${phoneNumbers.join('|')}', '${config.label}')" title="Click to select ${config.label} number">
+                      <img src="${iconPath}" alt="${config.label}" 
+                           onerror="this.src='./assets/icons/default.svg'" 
+                           style="image-rendering: crisp-edges; -webkit-image-rendering: crisp-edges;">
+                      <span class="link-label">${config.label}</span>
+                      <span class="upi-count-top-right">${phoneNumbers.length}</span>
+                    </div>
+                  `);
+                } else {
+                  // Single phone number - direct call
+                  url = `tel:${url}`;
+                  categoryLinks.push(`
+                    <a href="${url}" target="_blank" rel="noopener" title="${config.label}" class="social-link">
+                      <img src="${iconPath}" alt="${config.label}" 
+                           onerror="this.src='./assets/icons/default.svg'" 
+                           style="image-rendering: crisp-edges; -webkit-image-rendering: crisp-edges;">
+                      <span class="link-label">${config.label}</span>
+                    </a>
+                  `);
+                }
+                return; // Skip the regular link creation
+              } else if (config.isGmaps) {
+                // Handle Google Maps related links (location and review)
+                return; // Skip individual processing, will be handled specially
+              } else if (config.isUPI) {
+                // Check if there are multiple UPI IDs (comma-separated)
+                const upiIds = url.split(',').map(id => id.trim()).filter(id => id);
+
+                if (upiIds.length > 1) {
+                  // Multiple UPI IDs - show overlay option
+                  categoryLinks.push(`
+                    <div class="social-link upi-link" onclick="showUPIOverlay('${upiIds.join('|')}', '${config.label}')" title="Click to select ${config.label} UPI ID">
+                      <img src="${iconPath}" alt="${config.label}" 
+                           onerror="this.src='./assets/icons/default.svg'" 
+                           style="image-rendering: crisp-edges; -webkit-image-rendering: crisp-edges;">
+                      <span class="link-label">${config.label}</span>
+                      <span class="upi-count-top-right">${upiIds.length}</span>
+                    </div>
+                  `);
+                } else {
+                  // Single UPI ID - direct copy
+                  categoryLinks.push(`
+                    <div class="social-link upi-link" onclick="copyUPI('${url}', '${config.label}')" title="Click to copy ${config.label} UPI ID">
+                      <img src="${iconPath}" alt="${config.label}" 
+                           onerror="this.src='./assets/icons/default.svg'" 
+                           style="image-rendering: crisp-edges; -webkit-image-rendering: crisp-edges;">
+                      <span class="link-label">${config.label}</span>
+                    </div>
+                  `);
+                }
+                return; // Skip the regular link creation
+              }
+
+              categoryLinks.push(`
+                <a href="${url}" target="_blank" rel="noopener" title="${config.label}" class="social-link">
+                  <img src="${iconPath}" alt="${config.label}" 
+                       onerror="this.src='./assets/icons/default.svg'" 
+                       style="image-rendering: crisp-edges; -webkit-image-rendering: crisp-edges;">
+                  <span class="link-label">${config.label}</span>
+                </a>
+              `);
+            }
+          });
+
+          // Special handling for gmaps (location and review)
+          if (categoryName === '📞 Contact') {
+            const locationUrl = user.location;
+            const reviewUrl = user.googleReview;
+
+            if (locationUrl && locationUrl.trim()) {
+              if (reviewUrl && reviewUrl.trim()) {
+                // Both location and review available - show combined option
+                const gmapsOptions = [];
+                gmapsOptions.push(`Location: ${locationUrl}`);
+                gmapsOptions.push(`Google Review: ${reviewUrl}`);
+
+                categoryLinks.push(`
+                  <div class="social-link gmaps-link" onclick="showGmapsOverlay('${gmapsOptions.join('|')}', 'Google Maps')" title="Click to select Google Maps option">
+                    <img src="./assets/icons/gmaps.svg" alt="Google Maps" 
+                         onerror="this.src='./assets/icons/default.svg'" 
+                         style="image-rendering: crisp-edges; -webkit-image-rendering: crisp-edges;">
+                    <span class="link-label">Google Maps</span>
+                    <span class="upi-count-top-right">2</span>
+                  </div>
+                `);
+              } else {
+                // Only location available
+                categoryLinks.push(`
+                  <a href="${locationUrl}" target="_blank" rel="noopener" title="Google Maps Location" class="social-link">
+                    <img src="./assets/icons/gmaps.svg" alt="Google Maps" 
+                         onerror="this.src='./assets/icons/default.svg'" 
+                         style="image-rendering: crisp-edges; -webkit-image-rendering: crisp-edges;">
+                    <span class="link-label">Google Maps</span>
+                  </a>
+                `);
+              }
+            } else if (reviewUrl && reviewUrl.trim()) {
+              // Only review available
+              categoryLinks.push(`
+                <a href="${reviewUrl}" target="_blank" rel="noopener" title="Google Review" class="social-link">
+                  <img src="./assets/icons/gmaps.svg" alt="Google Maps" 
+                       onerror="this.src='./assets/icons/default.svg'" 
+                       style="image-rendering: crisp-edges; -webkit-image-rendering: crisp-edges;">
+                  <span class="link-label">Google Review</span>
+                </a>
+              `);
+            }
+          }
+
+          // Only add category if it has links
+          if (categoryLinks.length > 0) {
+            linksDiv.innerHTML += `
+              <div class="category-section">
+                <h3 class="category-title">${categoryName}</h3>
+                <div class="category-links">
+                  ${categoryLinks.join('')}
+                </div>
+              </div>
+            `;
+          }
+        });
+
+        if (linkCount === 0) {
+          linksDiv.innerHTML = "<p style='color: #999; margin-top: 20px;'>No links added yet</p>";
+        }
+      } catch (err) {
+        document.body.innerHTML = "<div class='profile-card'><h2>❌ Error loading user</h2><p>" + err.message + "</p></div>";
+      }
+    }
+
+    // Copy UPI ID to clipboard
+    function copyUPI(upiId, platformName) {
+      navigator.clipboard.writeText(upiId).then(() => {
+        // Show success message
+        const toast = document.createElement('div');
+        toast.className = 'upi-toast';
+        toast.innerHTML = `✅ ${platformName} UPI ID copied!<br><strong>${upiId}</strong>`;
+        document.body.appendChild(toast);
+
+        // Remove toast after 3 seconds
+        setTimeout(() => {
+          toast.remove();
+        }, 3000);
+      }).catch(err => {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = upiId;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+
+        // Show success message
+        const toast = document.createElement('div');
+        toast.className = 'upi-toast';
+        toast.innerHTML = `✅ ${platformName} UPI ID copied!<br><strong>${upiId}</strong>`;
+        document.body.appendChild(toast);
+
+        setTimeout(() => {
+          toast.remove();
+        }, 3000);
+      });
+    }
+
+    // Show UPI overlay for multiple IDs
+    function showUPIOverlay(upiIdsString, platformName) {
+      const upiIds = upiIdsString.split('|').map(id => id.trim()).filter(id => id);
+      const overlay = document.getElementById('upiOverlay');
+      const title = document.getElementById('upiOverlayTitle');
+      const options = document.getElementById('upiOptions');
+
+      title.textContent = `Select ${platformName} UPI ID`;
+      options.innerHTML = '';
+
+      upiIds.forEach((upiId, index) => {
+        const option = document.createElement('div');
+        option.className = 'upi-option';
+        option.innerHTML = `
+          <div class="upi-option-content">
+            <span class="upi-id">${upiId}</span>
+            <span class="upi-index">${index + 1}</span>
+          </div>
+        `;
+        option.onclick = () => {
+          copyUPI(upiId, platformName);
+          closeUPIOverlay();
+        };
+        options.appendChild(option);
+      });
+
+      overlay.style.display = 'flex';
+    }
+
+    // Close UPI overlay
+    function closeUPIOverlay() {
+      document.getElementById('upiOverlay').style.display = 'none';
+    }
+
+    // Close overlay when clicking outside
+    document.getElementById('upiOverlay').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeUPIOverlay();
+      }
+    });
+
+    // Show phone overlay for multiple numbers
+    function showPhoneOverlay(phoneNumbersString, platformName) {
+      const phoneNumbers = phoneNumbersString.split('|').map(num => num.trim()).filter(num => num);
+      const overlay = document.getElementById('phoneOverlay');
+      const title = document.getElementById('phoneOverlayTitle');
+      const options = document.getElementById('phoneOptions');
+
+      title.textContent = `Select ${platformName} Number`;
+      options.innerHTML = '';
+
+      phoneNumbers.forEach((phoneNumber, index) => {
+        const option = document.createElement('div');
+        option.className = 'upi-option';
+        option.innerHTML = `
+          <div class="upi-option-content">
+            <span class="upi-id">${phoneNumber}</span>
+            <span class="upi-index">${index + 1}</span>
+          </div>
+        `;
+        option.onclick = () => {
+          window.location.href = `tel:${phoneNumber}`;
+          closePhoneOverlay();
+        };
+        options.appendChild(option);
+      });
+
+      overlay.style.display = 'flex';
+    }
+
+    // Close phone overlay
+    function closePhoneOverlay() {
+      document.getElementById('phoneOverlay').style.display = 'none';
+    }
+
+    // Close phone overlay when clicking outside
+    document.getElementById('phoneOverlay').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closePhoneOverlay();
+      }
+    });
+
+    // Show email overlay for multiple addresses
+    function showEmailOverlay(emailAddressesString, platformName) {
+      const emailAddresses = emailAddressesString.split('|').map(email => email.trim()).filter(email => email);
+      const overlay = document.getElementById('emailOverlay');
+      const title = document.getElementById('emailOverlayTitle');
+      const options = document.getElementById('emailOptions');
+
+      title.textContent = `Select ${platformName} Address`;
+      options.innerHTML = '';
+
+      emailAddresses.forEach((emailAddress, index) => {
+        const option = document.createElement('div');
+        option.className = 'upi-option';
+        option.innerHTML = `
+          <div class="upi-option-content">
+            <span class="upi-id">${emailAddress}</span>
+            <span class="upi-index">${index + 1}</span>
+          </div>
+        `;
+        option.onclick = () => {
+          window.location.href = `mailto:${emailAddress}`;
+          closeEmailOverlay();
+        };
+        options.appendChild(option);
+      });
+
+      overlay.style.display = 'flex';
+    }
+
+    // Close email overlay
+    function closeEmailOverlay() {
+      document.getElementById('emailOverlay').style.display = 'none';
+    }
+
+    // Close email overlay when clicking outside
+    document.getElementById('emailOverlay').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeEmailOverlay();
+      }
+    });
+
+    // Show Google Maps overlay for multiple options
+    function showGmapsOverlay(gmapsOptionsString, platformName) {
+      const gmapsOptions = gmapsOptionsString.split('|').map(option => option.trim()).filter(option => option);
+      const overlay = document.getElementById('gmapsOverlay');
+      const title = document.getElementById('gmapsOverlayTitle');
+      const options = document.getElementById('gmapsOptions');
+
+      title.textContent = `Select ${platformName} Option`;
+      options.innerHTML = '';
+
+      gmapsOptions.forEach((option, index) => {
+        const optionElement = document.createElement('div');
+        optionElement.className = 'upi-option';
+
+        // Extract URL and label from the option string
+        const urlMatch = option.match(/https?:\/\/[^\s]+/);
+        const url = urlMatch ? urlMatch[0] : '';
+        let label = option.replace(/https?:\/\/[^\s]+/, '').replace(/^[^:]+:\s*/, '');
+
+        // Add specific labels based on the option type
+        if (option.includes('Location:')) {
+          label = 'Location';
+        } else if (option.includes('Google Review:')) {
+          label = 'Google Review';
+        }
+
+        optionElement.innerHTML = `
+          <div class="upi-option-content">
+            <span class="upi-id">${label}</span>
+            <span class="upi-index">${index + 1}</span>
+          </div>
+        `;
+        optionElement.onclick = () => {
+          if (url) {
+            window.open(url, '_blank', 'noopener');
+          }
+          closeGmapsOverlay();
+        };
+        options.appendChild(optionElement);
+      });
+
+      overlay.style.display = 'flex';
+    }
+
+    // Close Google Maps overlay
+    function closeGmapsOverlay() {
+      document.getElementById('gmapsOverlay').style.display = 'none';
+    }
+
+    // Close Google Maps overlay when clicking outside
+    document.getElementById('gmapsOverlay').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeGmapsOverlay();
+      }
+    });
+
+    loadUser();
+  </script>
+</body>
+
+</html>
