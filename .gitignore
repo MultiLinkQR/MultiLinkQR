@@ -1,0 +1,130 @@
+# ===================================
+# Multi QR Manager - Git Ignore
+# ===================================
+
+# Environment Variables (CRITICAL - Contains Admin Password)
+.env
+.env.local
+.env.development
+.env.production
+env.js
+
+# Sensitive Configuration Files
+config.js
+admin-config.js
+secrets.json
+
+# User Data (Optional - Uncomment if you want to keep user data private)
+# data/clients.json
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# nyc test coverage
+.nyc_output
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# next.js build output
+.next
+
+# nuxt.js build output
+.nuxt
+
+# vuepress build output
+.vuepress/dist
+
+# Serverless directories
+.serverless
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Backup files
+*.bak
+*.backup
+backup/
+
+# Local development files
+local/
+dev/
+
+# Build outputs
+dist/
+build/
+
+# Test files
+test-results/
+coverage/
+
+# Security scan results
+security-scan.log
+vulnerability-report.json
+
+# ===================================
+# IMPORTANT SECURITY NOTES:
+# ===================================
+# 1. NEVER commit .env files - they contain admin passwords
+# 2. NEVER commit data/clients.json if it contains real user data
+# 3. Always review changes before committing
+# 4. Use strong, unique passwords for admin access
+# 5. Regularly update dependencies for security patches
