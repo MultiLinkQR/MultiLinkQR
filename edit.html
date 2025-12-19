@@ -31,26 +31,31 @@
         <small class="form-hint">💡 Multiple users can have the same username - User Code makes each one unique</small>
         <input type="text" id="fullname" placeholder="Full Name" required>
         <input type="text" id="userCode" placeholder="User Code (auto-generated)" readonly class="readonly-input">
-        <small class="form-note">🔒 User Code is auto-generated and ensures uniqueness - This is what makes each user unique!</small>
+        <small class="form-note">🔒 User Code is auto-generated and ensures uniqueness - This is what makes each user
+          unique!</small>
       </div>
 
-      <!-- Professional Networks -->
-      <div class="form-section professional">
-        <h3>💼 Professional & Business Networks <span class="platform-count">3</span></h3>
-        <small>Career, business, and professional networking</small>
+      <!-- Professional & Business Networks -->
+      <div class="form-section" class="form-section professional">
+        <h3>💼 Professional & Business Networks <span class="platform-count">5</span></h3>
+        <small>Professional networking and career platforms</small>
         <input type="url" id="linkedin" placeholder="LinkedIn - https://linkedin.com/in/username">
-        <input type="url" id="xing" placeholder="Xing - https://xing.com/profile/username (Popular in Europe)">
-        <input type="url" id="angellist" placeholder="AngelList - https://angel.co/u/username (Startups & Jobs)">
+        <input type="url" id="xing" placeholder="Xing - https://xing.com/profile/username">
+        <input type="url" id="angellist" placeholder="AngelList - https://angel.co/username">
+        <input type="url" id="meetup" placeholder="Meetup - https://meetup.com/members/username">
+        <input type="url" id="opportunity" placeholder="Opportunity - https://opportunity.com/username">
       </div>
 
-      <!-- Creative & Design -->
-      <div class="form-section design">
-        <h3>🎨 Creative & Design Portfolios <span class="platform-count">4</span></h3>
-        <small>Showcase your design work and creative projects</small>
+      <!-- Creative & Design Portfolios -->
+      <div class="form-section" class="form-section design">
+        <h3>🎨 Creative & Design Portfolios <span class="platform-count">6</span></h3>
+        <small>Showcase your creative work</small>
         <input type="url" id="behance" placeholder="Behance - https://behance.net/username">
         <input type="url" id="dribbble" placeholder="Dribbble - https://dribbble.com/username">
         <input type="url" id="figma" placeholder="Figma - https://figma.com/@username">
-        <input type="url" id="portfolio" placeholder="Adobe Portfolio - https://username.myportfolio.com">
+        <input type="url" id="portfolio" placeholder="Portfolio - Your personal portfolio URL">
+        <input type="url" id="artstation" placeholder="ArtStation - https://artstation.com/username">
+        <input type="url" id="zerply" placeholder="Zerply - https://zerply.com/username">
       </div>
 
       <!-- Social Media -->
@@ -67,12 +72,14 @@
 
       <!-- Video Platforms -->
       <div class="form-section" class="form-section video">
-        <h3>🎥 Video Platforms <span class="platform-count">4</span></h3>
+        <h3>🎥 Video Platforms <span class="platform-count">6</span></h3>
         <small>Video sharing and live streaming</small>
         <input type="url" id="youtube" placeholder="YouTube - https://youtube.com/@username">
         <input type="url" id="tiktok" placeholder="TikTok - https://tiktok.com/@username">
         <input type="url" id="vimeo" placeholder="Vimeo - https://vimeo.com/username">
         <input type="url" id="twitch" placeholder="Twitch - https://twitch.tv/username">
+        <input type="url" id="rumble" placeholder="Rumble - https://rumble.com/c/username">
+        <input type="url" id="dailymotion" placeholder="Dailymotion - https://dailymotion.com/username">
       </div>
 
       <!-- Music & Audio -->
@@ -99,24 +106,31 @@
 
       <!-- Messaging & Communication -->
       <div class="form-section" class="form-section messaging">
-        <h3>💬 Messaging & Communication <span class="platform-count">6</span></h3>
-        <small>Chat apps and communication platforms</small>
-        <input type="url" id="whatsapp" placeholder="WhatsApp - https://wa.me/1234567890">
+        <h3>💬 Messaging & Communication <span class="platform-count">10</span></h3>
+        <small>Instant messaging and communication apps</small>
+        <input type="url" id="whatsapp" placeholder="WhatsApp - https://wa.me/phonenumber">
         <input type="url" id="telegram" placeholder="Telegram - https://t.me/username">
-        <input type="url" id="discord" placeholder="Discord - Username#1234 or Server Link">
-        <input type="url" id="signal" placeholder="Signal - Username or Profile Link">
-        <input type="url" id="skype" placeholder="Skype - Username or Profile Link">
+        <input type="url" id="discord" placeholder="Discord - https://discord.gg/serverinvite or username#0000">
+        <input type="url" id="signal" placeholder="Signal - Signal username or phone">
+        <input type="url" id="skype" placeholder="Skype - Skype username or link">
         <input type="url" id="slack" placeholder="Slack - Workspace or Profile URL">
+        <input type="url" id="wechat" placeholder="WeChat - WeChat ID">
+        <input type="url" id="line" placeholder="LINE - LINE ID or https://line.me/ti/p/username">
+        <input type="url" id="viber" placeholder="Viber - Viber username or link">
+        <input type="url" id="messenger" placeholder="Messenger - https://m.me/username">
       </div>
 
       <!-- Gaming Platforms -->
       <div class="form-section" class="form-section gaming">
-        <h3>🎮 Gaming Platforms <span class="platform-count">4</span></h3>
+        <h3>🎮 Gaming Platforms <span class="platform-count">7</span></h3>
         <small>Gaming networks and profiles</small>
         <input type="url" id="steam" placeholder="Steam - https://steamcommunity.com/id/username">
         <input type="url" id="xbox" placeholder="Xbox - Gamertag or Profile URL">
         <input type="url" id="playstation" placeholder="PlayStation - PSN ID or Profile URL">
         <input type="url" id="nintendo" placeholder="Nintendo - Friend Code or Profile">
+        <input type="url" id="dream11" placeholder="Dream11 - https://dream11.com/profile/username">
+        <input type="url" id="mpl" placeholder="MPL - https://mpl.live/profile/username">
+        <input type="url" id="winzo" placeholder="WinZO - https://winzo.com/profile/username">
       </div>
 
       <!-- Creator & Monetization -->
@@ -131,11 +145,18 @@
 
       <!-- E-commerce & Shopping -->
       <div class="form-section" class="form-section ecommerce">
-        <h3>🛒 E-Commerce & Shopping <span class="platform-count">3</span></h3>
+        <h3>🛒 E-Commerce & Shopping <span class="platform-count">10</span></h3>
         <small>Online stores and marketplaces</small>
         <input type="url" id="etsy" placeholder="Etsy - https://etsy.com/shop/shopname">
         <input type="url" id="amazon" placeholder="Amazon - Store or Author Page URL">
         <input type="url" id="shopify" placeholder="Shopify - https://yourstore.myshopify.com">
+        <input type="url" id="flipkart" placeholder="Flipkart - https://flipkart.com/shop/shopname">
+        <input type="url" id="myntra" placeholder="Myntra - https://myntra.com/shop/shopname">
+        <input type="url" id="meesho" placeholder="Meesho - https://meesho.com/shop/shopname">
+        <input type="url" id="nykaa" placeholder="Nykaa - https://nykaa.com/shop/shopname">
+        <input type="url" id="bigbasket" placeholder="BigBasket - https://bigbasket.com/shop/shopname">
+        <input type="url" id="blinkit" placeholder="Blinkit - https://blinkit.com/shop/shopname">
+        <input type="url" id="zepto" placeholder="Zepto - https://zepto.com/shop/shopname">
       </div>
 
       <!-- Photography & Visual Arts -->
@@ -158,7 +179,7 @@
 
       <!-- Other Social Platforms -->
       <div class="form-section" class="form-section misc-social">
-        <h3>🌐 Other Social Platforms <span class="platform-count">8</span></h3>
+        <h3>🌐 Other Social Platforms <span class="platform-count">17</span></h3>
         <small>Additional social networks and trending platforms</small>
         <input type="url" id="pinterest" placeholder="Pinterest - https://pinterest.com/username">
         <input type="url" id="reddit" placeholder="Reddit - https://reddit.com/user/username">
@@ -168,6 +189,15 @@
         <input type="url" id="clubhouse" placeholder="Clubhouse - https://clubhouse.com/@username">
         <input type="url" id="nextdoor" placeholder="Nextdoor - https://nextdoor.com/p/username">
         <input type="url" id="strava" placeholder="Strava - https://strava.com/athletes/username">
+        <input type="url" id="sharechat" placeholder="ShareChat - https://sharechat.com/profile/username">
+        <input type="url" id="moj" placeholder="Moj - https://moj.com/@username">
+        <input type="url" id="josh" placeholder="Josh - https://josh.com/@username">
+        <input type="url" id="koo" placeholder="Koo - https://kooapp.com/profile/username">
+        <input type="url" id="mxtakatak" placeholder="MX TakaTak - https://mxtakatak.com/@username">
+        <input type="url" id="vk" placeholder="VK - https://vk.com/username">
+        <input type="url" id="ok" placeholder="OK.ru - https://ok.ru/username">
+        <input type="url" id="kakaotalk" placeholder="Kakao Talk - Kakao ID">
+        <input type="url" id="quora" placeholder="Quora - https://quora.com/profile/username">
       </div>
 
       <!-- Productivity & Tools -->
@@ -181,7 +211,7 @@
 
       <!-- Payment & Donation Platforms -->
       <div class="form-section payment">
-        <h3>💳 Payment & Donation Platforms <span class="platform-count">6</span></h3>
+        <h3>💳 Payment & Donation Platforms <span class="platform-count">15</span></h3>
         <small>Payment links and UPI IDs. For multiple UPI IDs, separate with commas (e.g., id1@bank, id2@bank)</small>
         <input type="url" id="paypal" placeholder="PayPal - https://paypal.me/username">
 
@@ -206,39 +236,138 @@
         </div>
 
         <input type="url" id="cashapp" placeholder="Cash App - https://cash.app/$username">
+        <input type="url" id="razorpay" placeholder="Razorpay - https://razorpay.me/@username">
+        <input type="url" id="cred" placeholder="CRED - https://cred.club/username">
+        <input type="url" id="mobikwik" placeholder="MobiKwik - https://mobikwik.com/username">
+        <input type="url" id="freecharge" placeholder="Freecharge - https://freecharge.in/username">
+        <input type="url" id="bhim" placeholder="BHIM - UPI ID or link">
+        <input type="url" id="amazonpay" placeholder="Amazon Pay - https://amazon.in/pay/username">
+        <input type="url" id="navi" placeholder="Navi - https://navi.com/username">
+        <input type="url" id="jupiter" placeholder="Jupiter - https://jupiter.money/username">
+        <input type="url" id="jiofinance" placeholder="JioFinance - https://jiofinance.in/username">
       </div>
 
       <!-- Business & Professional Tools -->
       <div class="form-section business">
-        <h3>🏢 Business & Professional Tools <span class="platform-count">3</span></h3>
-        <small>Professional business platforms</small>
+        <h3>🏢 Business & Professional Tools <span class="platform-count">4</span></h3>
+        <small>Business analytics and professional resources</small>
         <input type="url" id="crunchbase" placeholder="Crunchbase - https://crunchbase.com/person/username">
         <input type="url" id="glassdoor" placeholder="Glassdoor - https://glassdoor.com/profile/username">
         <input type="url" id="indeed" placeholder="Indeed - https://indeed.com/profile/username">
+        <input type="url" id="naukri" placeholder="Naukri - https://naukri.com/profile/username">
       </div>
 
       <!-- Education & Learning -->
       <div class="form-section education">
-        <h3>🎓 Education & Learning <span class="platform-count">4</span></h3>
+        <h3>🎓 Education & Learning <span class="platform-count">9</span></h3>
         <small>Educational and learning platforms</small>
         <input type="url" id="coursera" placeholder="Coursera - https://coursera.org/user/username">
         <input type="url" id="udemy" placeholder="Udemy - https://udemy.com/user/username">
         <input type="url" id="skillshare" placeholder="Skillshare - https://skillshare.com/user/username">
         <input type="url" id="khanacademy" placeholder="Khan Academy - https://khanacademy.org/profile/username">
+        <input type="url" id="byjus" placeholder="BYJU'S - https://byjus.com/profile/username">
+        <input type="url" id="unacademy" placeholder="Unacademy - https://unacademy.com/@username">
+        <input type="url" id="vedantu" placeholder="Vedantu - https://vedantu.com/profile/username">
+        <input type="url" id="upgrad" placeholder="upGrad - https://upgrad.com/profile/username">
+        <input type="url" id="physicswallah" placeholder="PhysicsWallah - https://pw.live/@username">
+      </div>
+
+      <!-- Certificates & Credentials -->
+      <div class="form-section certificates">
+        <h3>🎓 Certificates & Credentials <span class="platform-count" id="cert-count">0</span></h3>
+        <small>Add your certificates, credentials, and achievements with custom titles</small>
+
+        <div id="certificates-container">
+          <!-- Certificate entries will be added here dynamically -->
+        </div>
+
+        <button type="button" class="add-certificate-btn" onclick="addCertificateEntry()">
+          ➕ Add Certificate
+        </button>
+      </div>
+
+      <!-- Food & Dining -->
+      <div class="form-section food">
+        <h3>🍔 Food & Dining <span class="platform-count">8</span></h3>
+        <small>Food delivery, restaurant platforms, and grocery delivery</small>
+        <input type="url" id="swiggy" placeholder="Swiggy - https://swiggy.com/restaurants/username">
+        <input type="url" id="zomato" placeholder="Zomato - https://zomato.com/username">
+        <input type="url" id="dineout" placeholder="Dineout - https://dineout.co.in/restaurant/username">
+        <input type="url" id="eatsure" placeholder="EatSure - https://eatsure.com/restaurant/username">
+        <input type="url" id="magicpin" placeholder="Magicpin - https://magicpin.in/username">
+        <input type="url" id="jiomart" placeholder="JioMart - https://jiomart.com/shop/username">
+        <input type="url" id="swiggyinstamart" placeholder="Swiggy Instamart - https://swiggy.com/instamart/username">
+        <input type="url" id="dunzo" placeholder="Dunzo - https://dunzo.com/shop/username">
+      </div>
+
+      <!-- Ride & Transportation -->
+      <div class="form-section transportation">
+        <h3>🚗 Ride & Transportation <span class="platform-count">4</span></h3>
+        <small>Ride-hailing and transportation services</small>
+        <input type="url" id="ola" placeholder="Ola - https://ola.com/profile/username">
+        <input type="url" id="uber" placeholder="Uber - https://uber.com/profile/username">
+        <input type="url" id="rapido" placeholder="Rapido - https://rapido.bike/profile/username">
+        <input type="url" id="porter" placeholder="Porter - https://porter.in/profile/username">
+      </div>
+
+      <!-- Travel & Hospitality -->
+      <div class="form-section travel">
+        <h3>✈️ Travel & Hospitality <span class="platform-count">5</span></h3>
+        <small>Travel booking and hotel platforms</small>
+        <input type="url" id="makemytrip" placeholder="MakeMyTrip - https://makemytrip.com/profile/username">
+        <input type="url" id="goibibo" placeholder="Goibibo - https://goibibo.com/profile/username">
+        <input type="url" id="oyo" placeholder="OYO - https://oyorooms.com/profile/username">
+        <input type="url" id="cleartrip" placeholder="Cleartrip - https://cleartrip.com/profile/username">
+        <input type="url" id="ixigo" placeholder="Ixigo - https://ixigo.com/profile/username">
+      </div>
+
+      <!-- Health & Wellness -->
+      <div class="form-section health">
+        <h3>🏥 Health & Wellness <span class="platform-count">4</span></h3>
+        <small>Healthcare and wellness platforms</small>
+        <input type="url" id="practo" placeholder="Practo - https://practo.com/doctor/username">
+        <input type="url" id="onemg" placeholder="1mg - https://1mg.com/doctor/username">
+        <input type="url" id="pharmeasy" placeholder="PharmEasy - https://pharmeasy.in/doctor/username">
+        <input type="url" id="cultfit" placeholder="Cult.fit - https://cult.fit/profile/username">
+      </div>
+
+      <!-- Entertainment & OTT -->
+      <div class="form-section ott">
+        <h3>🎬 Entertainment & OTT <span class="platform-count">8</span></h3>
+        <small>Streaming platforms and entertainment services</small>
+        <input type="url" id="jiocinema" placeholder="JioCinema - https://jiocinema.com/profile/username">
+        <input type="url" id="hotstar" placeholder="Hotstar - https://hotstar.com/profile/username">
+        <input type="url" id="netflix" placeholder="Netflix - https://netflix.com/profile/username">
+        <input type="url" id="primevideo" placeholder="Prime Video - https://primevideo.com/profile/username">
+        <input type="url" id="sonyliv" placeholder="Sony LIV - https://sonyliv.com/profile/username">
+        <input type="url" id="zee5" placeholder="ZEE5 - https://zee5.com/profile/username">
+        <input type="url" id="mxplayer" placeholder="MX Player - https://mxplayer.in/profile/username">
+        <input type="url" id="imdb" placeholder="IMDb - https://imdb.com/name/username">
+      </div>
+
+      <!-- Books & Reading -->
+      <div class="form-section books">
+        <h3>📚 Books & Reading <span class="platform-count">1</span></h3>
+        <small>Book lovers and reading communities</small>
+        <input type="url" id="goodreads" placeholder="Goodreads - https://goodreads.com/user/show/username">
       </div>
 
       <!-- Contact Information -->
       <div class="form-section contact">
         <h3>📞 Contact Information <span class="platform-count">4</span></h3>
-        <small>Essential contact details. For multiple emails/phone numbers, separate with commas (e.g., email1@domain.com, email2@domain.com)</small>
+        <small>Essential contact details. For multiple emails/phone numbers, separate with commas (e.g.,
+          email1@domain.com, email2@domain.com)</small>
 
         <div class="upi-input-group">
-          <input type="text" id="email" placeholder="Email Address(es) - user@example.com, user@gmail.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}([,\|\s]+[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})*" title="Enter email addresses separated by commas">
+          <input type="text" id="email" placeholder="Email Address(es) - user@example.com, user@gmail.com"
+            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}([,\|\s]+[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})*"
+            title="Enter email addresses separated by commas">
           <button type="button" class="add-upi-btn" data-target="email" title="Add another email address">+</button>
         </div>
 
         <div class="upi-input-group">
-          <input type="text" id="phone" placeholder="Phone Number(s) - +1234567890, +1987654321" pattern="[\+]?[0-9]+([,\|\s]+[\+]?[0-9]+)*" title="Enter phone numbers separated by commas">
+          <input type="text" id="phone" placeholder="Phone Number(s) - +1234567890, +1987654321"
+            pattern="[\+]?[0-9]+([,\|\s]+[\+]?[0-9]+)*" title="Enter phone numbers separated by commas">
           <button type="button" class="add-upi-btn" data-target="phone" title="Add another phone number">+</button>
         </div>
 
@@ -264,23 +393,29 @@
   <script>
     // All supported platforms grouped by category
     const platformGroups = {
-      professional: ['linkedin', 'xing', 'angellist'],
-      design: ['behance', 'dribbble', 'figma', 'portfolio'],
+      professional: ['linkedin', 'xing', 'angellist', 'meetup', 'opportunity'],
+      design: ['behance', 'dribbble', 'figma', 'portfolio', 'artstation', 'zerply'],
       social: ['instagram', 'twitter', 'facebook', 'threads', 'mastodon', 'bluesky'],
-      video: ['youtube', 'tiktok', 'vimeo', 'twitch'],
+      video: ['youtube', 'tiktok', 'vimeo', 'twitch', 'rumble', 'dailymotion'],
       music: ['spotify', 'soundcloud', 'applemusic', 'bandcamp'],
       developer: ['github', 'gitlab', 'bitbucket', 'stackoverflow', 'devto', 'codepen'],
-      messaging: ['whatsapp', 'telegram', 'discord', 'signal', 'skype', 'slack'],
-      gaming: ['steam', 'xbox', 'playstation', 'nintendo'],
+      messaging: ['whatsapp', 'telegram', 'discord', 'signal', 'skype', 'slack', 'wechat', 'line', 'viber', 'messenger'],
+      gaming: ['steam', 'xbox', 'playstation', 'nintendo', 'dream11', 'mpl', 'winzo'],
       creator: ['patreon', 'kofi', 'buymeacoffee', 'substack'],
-      ecommerce: ['etsy', 'amazon', 'shopify', 'flipkart'],
+      ecommerce: ['etsy', 'amazon', 'shopify', 'flipkart', 'myntra', 'meesho', 'nykaa', 'bigbasket', 'blinkit', 'zepto'],
       photography: ['flickr', '500px', 'unsplash'],
       blogging: ['medium', 'wordpress', 'blogger'],
-      miscSocial: ['pinterest', 'reddit', 'snapchat', 'tumblr', 'bereal', 'clubhouse', 'nextdoor', 'strava'],
+      miscSocial: ['pinterest', 'reddit', 'snapchat', 'tumblr', 'bereal', 'clubhouse', 'nextdoor', 'strava', 'sharechat', 'moj', 'josh', 'koo', 'mxtakatak', 'vk', 'ok', 'kakaotalk', 'quora'],
       productivity: ['linktree', 'notion', 'calendly'],
-      payment: ['paypal', 'gpay', 'phonepe', 'paytm', 'upi', 'cashapp'],
-      business: ['crunchbase', 'glassdoor', 'indeed'],
-      education: ['coursera', 'udemy', 'skillshare', 'khanacademy'],
+      payment: ['paypal', 'gpay', 'phonepe', 'paytm', 'upi', 'cashapp', 'razorpay', 'cred', 'mobikwik', 'freecharge', 'bhim', 'amazonpay', 'navi', 'jupiter', 'jiofinance'],
+      business: ['crunchbase', 'glassdoor', 'indeed', 'naukri'],
+      education: ['coursera', 'udemy', 'skillshare', 'khanacademy', 'byjus', 'unacademy', 'vedantu', 'upgrad', 'physicswallah'],
+      food: ['swiggy', 'zomato', 'dineout', 'eatsure', 'magicpin', 'jiomart', 'swiggyinstamart', 'dunzo'],
+      transportation: ['ola', 'uber', 'rapido', 'porter'],
+      travel: ['makemytrip', 'goibibo', 'oyo', 'cleartrip', 'ixigo'],
+      health: ['practo', 'onemg', 'pharmeasy', 'cultfit'],
+      ott: ['jiocinema', 'hotstar', 'netflix', 'primevideo', 'sonyliv', 'zee5', 'mxplayer', 'imdb'],
+      books: ['goodreads'],
       contact: ['email', 'phone', 'website', 'menucard', 'location', 'googleReview']
     };
 
@@ -429,6 +564,11 @@
             input.value = user[platform];
           }
         });
+
+        // Load certificates if they exist
+        if (user.certificates) {
+          loadCertificates(user.certificates);
+        }
       } catch (err) {
         console.error("Error loading user:", err);
       }
@@ -502,6 +642,43 @@
       data._comment_education = "=== EDUCATION & LEARNING ===";
       platformGroups.education.forEach(p => data[p] = document.getElementById(p)?.value.trim() || "");
 
+      data._comment_food = "=== FOOD & DINING ===";
+      platformGroups.food.forEach(p => data[p] = document.getElementById(p)?.value.trim() || "");
+
+      data._comment_transportation = "=== RIDE & TRANSPORTATION ===";
+      platformGroups.transportation.forEach(p => data[p] = document.getElementById(p)?.value.trim() || "");
+
+      data._comment_travel = "=== TRAVEL & HOSPITALITY ===";
+      platformGroups.travel.forEach(p => data[p] = document.getElementById(p)?.value.trim() || "");
+
+      data._comment_health = "=== HEALTH & WELLNESS ===";
+      platformGroups.health.forEach(p => data[p] = document.getElementById(p)?.value.trim() || "");
+
+      data._comment_ott = "=== ENTERTAINMENT & OTT ===";
+      platformGroups.ott.forEach(p => data[p] = document.getElementById(p)?.value.trim() || "");
+
+      data._comment_books = "=== BOOKS & READING ===";
+      platformGroups.books.forEach(p => data[p] = document.getElementById(p)?.value.trim() || "");
+
+      // Collect certificates
+      const certificates = [];
+      document.querySelectorAll('.certificate-entry').forEach(entry => {
+        const titleInput = entry.querySelector('.cert-title');
+        const urlInput = entry.querySelector('.cert-url');
+
+        if (titleInput && urlInput && titleInput.value.trim() && urlInput.value.trim()) {
+          certificates.push({
+            title: titleInput.value.trim(),
+            url: urlInput.value.trim()
+          });
+        }
+      });
+
+      if (certificates.length > 0) {
+        data._comment_certificates = "=== CERTIFICATES & CREDENTIALS ===";
+        data.certificates = certificates;
+      }
+
       data._comment_contact = "=== CONTACT INFORMATION ===";
       platformGroups.contact.forEach(p => data[p] = document.getElementById(p)?.value.trim() || "");
 
@@ -534,7 +711,7 @@
     // Input sanitization function
     function sanitizeInput(input) {
       if (typeof input !== 'string') return '';
-      return input.replace(/[<>\"'&]/g, function(match) {
+      return input.replace(/[<>\"'&]/g, function (match) {
         const escapeMap = {
           '<': '&lt;',
           '>': '&gt;',
@@ -571,7 +748,7 @@
     // Handle multiple UPI IDs functionality
     function setupUPIInputGroups() {
       document.querySelectorAll('.add-upi-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function () {
           const targetId = this.dataset.target;
           const input = document.getElementById(targetId);
           const currentValue = input.value.trim();
@@ -594,6 +771,69 @@
 
     // Initialize UPI input groups when DOM is loaded
     document.addEventListener('DOMContentLoaded', setupUPIInputGroups);
+
+    // Certificate Management Functions
+    let certificateCounter = 0;
+
+    function addCertificateEntry() {
+      certificateCounter++;
+      const container = document.getElementById('certificates-container');
+
+      const certEntry = document.createElement('div');
+      certEntry.className = 'certificate-entry';
+      certEntry.id = `cert-entry-${certificateCounter}`;
+      certEntry.innerHTML = `
+        <div class="cert-inputs">
+          <input type="text" 
+                 class="cert-title" 
+                 id="cert-title-${certificateCounter}" 
+                 placeholder="Certificate Title (e.g., AWS Certified Solutions Architect)"
+                 required>
+          <input type="url" 
+                 class="cert-url" 
+                 id="cert-url-${certificateCounter}" 
+                 placeholder="Certificate URL (e.g., https://example.com/certificate.pdf)"
+                 required>
+          <button type="button" 
+                  class="remove-cert-btn" 
+                  onclick="removeCertificateEntry(${certificateCounter})"
+                  title="Remove this certificate">
+            ✖
+          </button>
+        </div>
+      `;
+
+      container.appendChild(certEntry);
+      updateCertificateCount();
+
+      // Focus on the title input
+      document.getElementById(`cert-title-${certificateCounter}`).focus();
+    }
+
+    function removeCertificateEntry(id) {
+      const entry = document.getElementById(`cert-entry-${id}`);
+      if (entry) {
+        entry.remove();
+        updateCertificateCount();
+      }
+    }
+
+    function updateCertificateCount() {
+      const count = document.querySelectorAll('.certificate-entry').length;
+      document.getElementById('cert-count').textContent = count;
+    }
+
+    // Load existing certificates when editing
+    function loadCertificates(certificates) {
+      if (!certificates || !Array.isArray(certificates)) return;
+
+      certificates.forEach(cert => {
+        addCertificateEntry();
+        const lastId = certificateCounter;
+        document.getElementById(`cert-title-${lastId}`).value = cert.title || '';
+        document.getElementById(`cert-url-${lastId}`).value = cert.url || '';
+      });
+    }
   </script>
 </body>
 

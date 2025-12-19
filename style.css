@@ -57,7 +57,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
+  background:
     radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
   pointer-events: none;
@@ -94,6 +94,7 @@ header {
     opacity: 0;
     transform: translateY(-30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -208,9 +209,12 @@ header p {
   box-shadow: var(--shadow);
   margin: 2rem auto;
   max-width: 500px;
-  grid-column: 1 / -1; /* Span across all grid columns */
-  justify-self: center; /* Center within the grid */
-  word-wrap: break-word; /* Break long words */
+  grid-column: 1 / -1;
+  /* Span across all grid columns */
+  justify-self: center;
+  /* Center within the grid */
+  word-wrap: break-word;
+  /* Break long words */
 }
 
 .search-hint {
@@ -224,6 +228,7 @@ header p {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -472,6 +477,7 @@ button[type="submit"] {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -501,6 +507,7 @@ button[type="submit"] {
     opacity: 0;
     transform: translateY(50px) scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -815,6 +822,7 @@ button[type="submit"] {
   font-weight: 500;
   color: var(--dark);
   font-size: 0.875rem;
+  text-align: left;   /* to keep the labels of the edit qr options in the left */
 }
 
 .color-controls {
@@ -1237,6 +1245,7 @@ button[type="submit"] {
     opacity: 0;
     transform: scale(0.9) translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: scale(1) translateY(0);
@@ -1403,9 +1412,19 @@ button[type="submit"] {
 }
 
 @keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  75% { transform: translateX(5px); }
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-5px);
+  }
+
+  75% {
+    transform: translateX(5px);
+  }
 }
 
 .public-access {
@@ -1581,12 +1600,12 @@ button[type="submit"] {
   transition: var(--transition);
 }
 
-.checkbox-label input[type="checkbox"]:checked + .checkmark {
+.checkbox-label input[type="checkbox"]:checked+.checkmark {
   background: var(--primary);
   border-color: var(--primary);
 }
 
-.checkbox-label input[type="checkbox"]:checked + .checkmark::after {
+.checkbox-label input[type="checkbox"]:checked+.checkmark::after {
   content: '';
   position: absolute;
   left: 5px;
@@ -1861,22 +1880,22 @@ button[type="submit"] {
   box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
 }
 
-  .modal-form input[type="text"].success,
-  .modal-form input[type="password"].success {
-    border-color: var(--success);
-    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
-  }
+.modal-form input[type="text"].success,
+.modal-form input[type="password"].success {
+  border-color: var(--success);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
 
-  /* Field Success Styling */
-  .field-success {
-    color: var(--success);
-    font-size: 0.75rem;
-    margin-top: 0.25rem;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-  }
+/* Field Success Styling */
+.field-success {
+  color: var(--success);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
 
 /* ===================================
    FORM STYLES (Edit Page)
@@ -2052,6 +2071,7 @@ form input::placeholder {
     opacity: 0;
     transform: scale(0.9);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -2209,6 +2229,7 @@ form input::placeholder {
     transform: translateX(100%);
     opacity: 0;
   }
+
   to {
     transform: translateX(0);
     opacity: 1;
@@ -2625,11 +2646,11 @@ form input::placeholder {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.toggle-switch input:checked + .toggle-slider {
+.toggle-switch input:checked+.toggle-slider {
   background: linear-gradient(135deg, var(--success), #059669);
 }
 
-.toggle-switch input:checked + .toggle-slider:before {
+.toggle-switch input:checked+.toggle-slider:before {
   transform: translateX(26px);
 }
 
@@ -2637,7 +2658,7 @@ form input::placeholder {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
 
-.toggle-switch input:checked + .toggle-slider:hover {
+.toggle-switch input:checked+.toggle-slider:hover {
   box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
 }
 
@@ -2790,16 +2811,16 @@ form input::placeholder {
   .admin-table-container {
     overflow-x: auto;
   }
-  
+
   .admin-users-table {
     min-width: 700px;
   }
-  
+
   .admin-users-table th,
   .admin-users-table td {
     padding: 0.75rem 0.5rem;
   }
-  
+
   .admin-users-table .btn-show-qr,
   .admin-users-table .btn-edit,
   .admin-users-table .btn-view {
@@ -2807,19 +2828,19 @@ form input::placeholder {
     font-size: 0.7rem;
     margin: 0 0.125rem;
   }
-  
+
   .username-cell .password {
     font-size: 0.7rem;
     max-width: 150px;
     word-break: break-all;
   }
-  
+
   .password-toggle-btn {
     min-width: 20px;
     height: 20px;
     padding: 0.2rem;
   }
-  
+
   .toggle-icon {
     font-size: 12px;
   }
@@ -2829,39 +2850,39 @@ form input::placeholder {
    USER DASHBOARD STYLES
    =================================== */
 
-  /* Total Users Text Display */
-  .total-users-text-display {
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 2rem;
-    animation: fadeIn 0.8s ease-out 0.6s backwards;
-  }
+/* Total Users Text Display */
+.total-users-text-display {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 2rem;
+  animation: fadeIn 0.8s ease-out 0.6s backwards;
+}
 
-  .total-users-text-display .total-users-label {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--dark);
-    margin: 0;
-  }
+.total-users-text-display .total-users-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin: 0;
+}
 
-  /* No Results Card */
-  .no-results-card {
-    background: var(--white);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow);
-    padding: 2rem;
-    text-align: center;
-    color: var(--text);
-    font-size: 1.1rem;
-    max-width: 400px;
-    margin: 2rem auto;
-    animation: fadeIn 0.5s ease-out;
-  }
+/* No Results Card */
+.no-results-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  text-align: center;
+  color: var(--text);
+  font-size: 1.1rem;
+  max-width: 400px;
+  margin: 2rem auto;
+  animation: fadeIn 0.5s ease-out;
+}
 
-  .no-results-card p {
-    margin: 0;
-    font-weight: 500;
-  }
+.no-results-card p {
+  margin: 0;
+  font-weight: 500;
+}
 
 .stat-card {
   background: var(--white);
@@ -2986,16 +3007,16 @@ form input::placeholder {
   .table-container {
     overflow-x: auto;
   }
-  
+
   .users-table {
     min-width: 600px;
   }
-  
+
   .users-table th,
   .users-table td {
     padding: 0.75rem 0.5rem;
   }
-  
+
   .users-table .btn-show-qr,
   .users-table .btn-edit,
   .users-table .btn-view {
@@ -3010,17 +3031,147 @@ form input::placeholder {
   text-align: center;
 }
 
-.mt-1 { margin-top: 0.5rem; }
-.mt-2 { margin-top: 1rem; }
-.mt-3 { margin-top: 1.5rem; }
-.mt-4 { margin-top: 2rem; }
+.mt-1 {
+  margin-top: 0.5rem;
+}
 
-.mb-1 { margin-bottom: 0.5rem; }
-.mb-2 { margin-bottom: 1rem; }
-.mb-3 { margin-bottom: 1.5rem; }
-.mb-4 { margin-bottom: 2rem; }
+.mt-2 {
+  margin-top: 1rem;
+}
 
-.p-1 { padding: 0.5rem; }
-.p-2 { padding: 1rem; }
-.p-3 { padding: 1.5rem; }
-.p-4 { padding: 2rem; }
+.mt-3 {
+  margin-top: 1.5rem;
+}
+
+.mt-4 {
+  margin-top: 2rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-2 {
+  margin-bottom: 1rem;
+}
+
+.mb-3 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 2rem;
+}
+
+.p-1 {
+  padding: 0.5rem;
+}
+
+.p-2 {
+  padding: 1rem;
+}
+
+.p-3 {
+  padding: 1.5rem;
+}
+
+.p-4 {
+  padding: 2rem;
+}
+
+/* ===================================
+   CERTIFICATE SECTION STYLES
+   =================================== */
+
+.certificate-entry {
+  margin-bottom: 1rem;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.cert-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.cert-title,
+.cert-url {
+  padding: 0.875rem 1rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: var(--transition);
+  background: var(--white);
+}
+
+.cert-title:focus,
+.cert-url:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.remove-cert-btn {
+  padding: 0.875rem 1rem;
+  background: var(--danger);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 600;
+  font-size: 1rem;
+  min-width: 44px;
+}
+
+.remove-cert-btn:hover {
+  background: #dc2626;
+  transform: scale(1.05);
+}
+
+.add-certificate-btn {
+  margin-top: 1rem;
+  padding: 0.875rem 1.5rem;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: var(--shadow);
+}
+
+.add-certificate-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .cert-inputs {
+    grid-template-columns: 1fr;
+  }
+
+  .remove-cert-btn {
+    width: 100%;
+  }
+}
