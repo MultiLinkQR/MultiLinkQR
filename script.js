@@ -34,6 +34,7 @@ async function loadUsersForQR(username, userCode) {
     const dataFiles = [
       './data/personal.json',
       './data/clients.json',
+      './data/demo.json',
       // Add more files here as needed: './data/users_location2.json', etc.
     ];
 
@@ -184,6 +185,7 @@ async function loadUsers() {
       const dataFiles = [
         './data/personal.json',
         './data/clients.json',
+        './data/demo.json',
       ];
 
       const allUsers = [];
@@ -1302,7 +1304,7 @@ function setupCustomizationPanel() {
 // Display admin statistics
 async function displayAdminStatistics(users) {
   const totalClientUsers = users.length;
-  const totalDataFiles = 2; // personal.json, clients.json
+  const totalDataFiles = 3; // personal.json, clients.json, demo.json
 
   let totalLinks = 0;
   users.forEach(user => {
@@ -1453,7 +1455,7 @@ async function displayLoginAccountsTable(accountsToShow = null) {
 // Get client user counts for each data file
 async function getClientUserCounts() {
   const counts = {};
-  const dataFiles = ['personal.json', 'clients.json'];
+  const dataFiles = ['personal.json', 'clients.json', 'demo.json'];
 
   for (const file of dataFiles) {
     try {

@@ -384,7 +384,7 @@
     </form>
 
     <div id="output" class="output-box hidden">
-      <h3>✅ Copy this JSON and add to data/clients.json:</h3>
+      <h3>✅ Copy this JSON and add to <span id="targetDataFile">data/clients.json</span>:</h3>
       <textarea id="jsonOutput" readonly placeholder="User JSON data will appear here..."></textarea>
       <button class="btn-primary" id="copyBtn">📋 Copy to Clipboard</button>
     </div>
@@ -440,6 +440,7 @@
         const dataFiles = [
           './data/personal.json',
           './data/clients.json',
+          './data/demo.json',
           // Add more files here as needed: './data/users_location2.json', etc.
         ];
 
@@ -510,6 +511,7 @@
         const dataFiles = [
           './data/personal.json',
           './data/clients.json',
+          './data/demo.json',
           // Add more files here as needed: './data/users_location2.json', etc.
         ];
 
@@ -533,6 +535,8 @@
 
               if (user) {
                 console.log(`✅ Found user in ${file}`);
+                // Store found file for display
+                window.currentDataFile = file.replace('./', '');
                 break; // Stop searching once user is found
               }
             }
@@ -690,6 +694,12 @@
         .replace(/,\n  "userCode"/g, ',\n  "userCode"');   // Keep normal spacing for userCode
 
       document.getElementById('jsonOutput').value = jsonOutput;
+
+      // Update target file name if known
+      if (window.currentDataFile) {
+        document.getElementById('targetDataFile').innerText = window.currentDataFile;
+      }
+
       document.getElementById('output').style.display = 'block';
 
       document.getElementById('output').scrollIntoView({ behavior: 'smooth' });

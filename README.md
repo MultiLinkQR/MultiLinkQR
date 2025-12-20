@@ -70,7 +70,8 @@ MultiLinkQRgenerator/
 ├── style.css               # Styling
 ├── data/
 │   ├── personal.json       # Personal accounts
-│   └── clients.json        # Client database
+│   ├── clients.json        # Client database
+│   └── demo.json           # Demo database
 ├── credentials/
 │   └── login_credentials.json  # Admin accounts
 ├── assets/
