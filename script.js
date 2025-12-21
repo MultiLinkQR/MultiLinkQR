@@ -1591,10 +1591,10 @@ async function handleAddLoginForm(e) {
   }
 
   // Show credentials display
-  showCredentialsDisplay(username, password, processedDataFile, 'user');
+  showCredentialsDisplay(username, password, processedDataFile, 'user', description);
 }
 
-function showCredentialsDisplay(username, password, dataFile, role) {
+function showCredentialsDisplay(username, password, dataFile, role, userDescription) {
   // Hide form and show credentials
   document.getElementById('addLoginForm').classList.add('hidden');
   document.getElementById('credentialsDisplay').classList.remove('hidden');
@@ -1607,7 +1607,7 @@ function showCredentialsDisplay(username, password, dataFile, role) {
     createdAt: new Date().toISOString().split('T')[0],
     isActive: true,
     dataFile: dataFile,
-    description: `User account for ${dataFile}`
+    description: userDescription || `User account for ${dataFile}`
   };
 
   // Format JSON with proper indentation

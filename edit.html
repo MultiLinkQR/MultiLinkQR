@@ -586,7 +586,7 @@
       e.preventDefault();
 
       const usernameInput = document.getElementById('username').value;
-      const normalizedUsername = usernameInput.trim().toLowerCase().replace(/\s+/g, '-');
+      const normalizedUsername = usernameInput.trim().replace(/\s+/g, '-');
 
       const data = {
         username: normalizedUsername,

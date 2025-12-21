@@ -61,8 +61,21 @@
         "website": "https://google.com",
         "practo": "https://google.com",
         "phone": "+1234567890",
+        "whatsapp": "https://google.com",
         "location": "https://google.com",
-        "googleReview": "https://google.com"
+        "email": "doctor@google.com",
+        "googleReview": "https://google.com",
+        "calendly": "https://google.com",
+        "certificates": [
+            {
+                "title": "MBBS Degree",
+                "link": "https://google.com"
+            },
+            {
+                "title": "Board Certified",
+                "link": "https://google.com"
+            }
+        ]
     },
     {
         "username": "education",
@@ -72,9 +85,13 @@
         "website": "https://google.com",
         "youtube": "https://google.com",
         "udemy": "https://google.com",
+        "coursera": "https://google.com",
         "linkedin": "https://google.com",
+        "instagram": "https://google.com",
+        "facebook": "https://google.com",
         "location": "https://google.com",
-        "phone": "+919876543210"
+        "phone": "+919876543210",
+        "email": "info@google.com"
     },
     {
         "username": "realestate",
@@ -133,8 +150,20 @@
         "github": "https://google.com",
         "coursera": "https://google.com",
         "instagram": "https://google.com",
+        "twitter": "https://google.com",
+        "portfolio": "https://google.com",
         "email": "student@google.com",
-        "phone": "+919876543210"
+        "phone": "+919876543210",
+        "certificates": [
+            {
+                "title": "Python Programming Certificate",
+                "link": "https://google.com"
+            },
+            {
+                "title": "Data Science Specialization",
+                "link": "https://google.com"
+            }
+        ]
     },
     {
         "username": "developer",
@@ -146,7 +175,19 @@
         "linkedin": "https://google.com",
         "website": "https://google.com",
         "devto": "https://google.com",
-        "twitter": "https://google.com"
+        "twitter": "https://google.com",
+        "medium": "https://google.com",
+        "email": "dev@google.com",
+        "certificates": [
+            {
+                "title": "AWS Certified Developer",
+                "link": "https://google.com"
+            },
+            {
+                "title": "Google Cloud Professional",
+                "link": "https://google.com"
+            }
+        ]
     },
     {
         "username": "designer",
@@ -522,5 +563,256 @@
         "whatsapp": "https://google.com",
         "email": "realtor@google.com",
         "facebook": "https://google.com"
+    },
+    {
+        "username": "school",
+        "fullname": "School",
+        "userCode": "SCHOOL2024",
+        "_comment_education": "=== EDUCATIONAL INSTITUTION ===",
+        "website": "https://google.com",
+        "facebook": "https://google.com",
+        "instagram": "https://google.com",
+        "youtube": "https://google.com",
+        "location": "https://google.com",
+        "phone": "+919876543210",
+        "email": "admissions@google.com",
+        "googleReview": "https://google.com",
+        "certificates": [
+            {
+                "title": "ISO 9001:2015 Certified",
+                "link": "https://google.com"
+            },
+            {
+                "title": "CBSE Affiliation",
+                "link": "https://google.com"
+            },
+            {
+                "title": "Green School Award 2024",
+                "link": "https://google.com"
+            }
+        ]
+    },
+    {
+        "username": "university",
+        "fullname": "University",
+        "userCode": "UNI2024",
+        "_comment_education": "=== HIGHER EDUCATION ===",
+        "website": "https://google.com",
+        "linkedin": "https://google.com",
+        "twitter": "https://google.com",
+        "facebook": "https://google.com",
+        "instagram": "https://google.com",
+        "youtube": "https://google.com",
+        "location": "https://google.com",
+        "email": "info@google.com",
+        "phone": "+919876543210",
+        "certificates": [
+            {
+                "title": "NAAC A++ Accreditation",
+                "link": "https://google.com"
+            },
+            {
+                "title": "UGC Approved",
+                "link": "https://google.com"
+            }
+        ]
+    },
+    {
+        "username": "library",
+        "fullname": "Library",
+        "userCode": "LIB2024",
+        "_comment_education": "=== PUBLIC LIBRARY ===",
+        "website": "https://google.com",
+        "facebook": "https://google.com",
+        "instagram": "https://google.com",
+        "twitter": "https://google.com",
+        "location": "https://google.com",
+        "phone": "+919876543210",
+        "email": "library@google.com",
+        "goodreads": "https://google.com"
+    },
+    {
+        "username": "architect",
+        "fullname": "Architect",
+        "userCode": "ARCH2024",
+        "_comment_professional": "=== ARCHITECTURE ===",
+        "website": "https://google.com",
+        "behance": "https://google.com",
+        "instagram": "https://google.com",
+        "linkedin": "https://google.com",
+        "pinterest": "https://google.com",
+        "email": "architect@google.com",
+        "phone": "+919876543210",
+        "location": "https://google.com",
+        "certificates": [
+            {
+                "title": "Registered Architect",
+                "link": "https://google.com"
+            },
+            {
+                "title": "LEED Certified Professional",
+                "link": "https://google.com"
+            }
+        ]
+    },
+    {
+        "username": "interiordesigner",
+        "fullname": "Interior Designer",
+        "userCode": "INTD2024",
+        "_comment_creative": "=== INTERIOR DESIGN ===",
+        "website": "https://google.com",
+        "instagram": "https://google.com",
+        "pinterest": "https://google.com",
+        "behance": "https://google.com",
+        "houzz": "https://google.com",
+        "facebook": "https://google.com",
+        "phone": "+919876543210",
+        "email": "design@google.com",
+        "whatsapp": "https://google.com"
+    },
+    {
+        "username": "nutritionist",
+        "fullname": "Nutritionist",
+        "userCode": "NUT2024",
+        "_comment_health": "=== NUTRITION ===",
+        "website": "https://google.com",
+        "instagram": "https://google.com",
+        "practo": "https://google.com",
+        "calendly": "https://google.com",
+        "phone": "+919876543210",
+        "email": "nutrition@google.com",
+        "whatsapp": "https://google.com",
+        "youtube": "https://google.com",
+        "certificates": [
+            {
+                "title": "Certified Nutritionist",
+                "link": "https://google.com"
+            },
+            {
+                "title": "Sports Nutrition Specialist",
+                "link": "https://google.com"
+            }
+        ]
+    },
+    {
+        "username": "psychologist",
+        "fullname": "Psychologist",
+        "userCode": "PSY2024",
+        "_comment_health": "=== MENTAL HEALTH ===",
+        "website": "https://google.com",
+        "practo": "https://google.com",
+        "calendly": "https://google.com",
+        "linkedin": "https://google.com",
+        "phone": "+919876543210",
+        "email": "therapy@google.com",
+        "location": "https://google.com",
+        "certificates": [
+            {
+                "title": "Licensed Clinical Psychologist",
+                "link": "https://google.com"
+            },
+            {
+                "title": "CBT Certified",
+                "link": "https://google.com"
+            }
+        ]
+    },
+    {
+        "username": "hotel",
+        "fullname": "Hotel",
+        "userCode": "HOTEL2024",
+        "_comment_hospitality": "=== HOSPITALITY ===",
+        "website": "https://google.com",
+        "booking": "https://google.com",
+        "tripadvisor": "https://google.com",
+        "instagram": "https://google.com",
+        "facebook": "https://google.com",
+        "location": "https://google.com",
+        "phone": "+919876543210",
+        "email": "reservations@google.com",
+        "googleReview": "https://google.com"
+    },
+    {
+        "username": "coffeeshop",
+        "fullname": "Coffee Shop",
+        "userCode": "CAFE2024",
+        "_comment_food": "=== CAFE ===",
+        "instagram": "https://google.com",
+        "zomato": "https://google.com",
+        "swiggy": "https://google.com",
+        "location": "https://google.com",
+        "phone": "+919876543210",
+        "googleReview": "https://google.com",
+        "facebook": "https://google.com",
+        "website": "https://google.com"
+    },
+    {
+        "username": "cardealer",
+        "fullname": "Auto Dealer",
+        "userCode": "AUTO2024",
+        "_comment_automotive": "=== AUTOMOTIVE ===",
+        "website": "https://google.com",
+        "facebook": "https://google.com",
+        "instagram": "https://google.com",
+        "youtube": "https://google.com",
+        "location": "https://google.com",
+        "phone": "+919876543210",
+        "whatsapp": "https://google.com",
+        "email": "sales@google.com",
+        "googleReview": "https://google.com"
+    },
+    {
+        "username": "jeweler",
+        "fullname": "Jeweler",
+        "userCode": "JEW2024",
+        "_comment_retail": "=== JEWELRY ===",
+        "website": "https://google.com",
+        "instagram": "https://google.com",
+        "facebook": "https://google.com",
+        "location": "https://google.com",
+        "phone": "+919876543210",
+        "whatsapp": "https://google.com",
+        "googleReview": "https://google.com",
+        "pinterest": "https://google.com"
+    },
+    {
+        "username": "bookstore",
+        "fullname": "Book Store",
+        "userCode": "BOOK2024",
+        "_comment_retail": "=== BOOKS ===",
+        "website": "https://google.com",
+        "instagram": "https://google.com",
+        "facebook": "https://google.com",
+        "goodreads": "https://google.com",
+        "location": "https://google.com",
+        "phone": "+919876543210",
+        "email": "books@google.com",
+        "amazon": "https://google.com"
+    },
+    {
+        "username": "sportsteam",
+        "fullname": "Sports Team",
+        "userCode": "SPORT2024",
+        "_comment_sports": "=== SPORTS ===",
+        "website": "https://google.com",
+        "instagram": "https://google.com",
+        "twitter": "https://google.com",
+        "facebook": "https://google.com",
+        "youtube": "https://google.com",
+        "tiktok": "https://google.com",
+        "email": "team@google.com"
+    },
+    {
+        "username": "newsagency",
+        "fullname": "News Agency",
+        "userCode": "NEWS2024",
+        "_comment_media": "=== NEWS & MEDIA ===",
+        "website": "https://google.com",
+        "twitter": "https://google.com",
+        "facebook": "https://google.com",
+        "instagram": "https://google.com",
+        "youtube": "https://google.com",
+        "linkedin": "https://google.com",
+        "email": "news@google.com"
     }
 ]
