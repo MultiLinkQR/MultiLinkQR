@@ -236,6 +236,7 @@
       jiomart: { icon: 'jiomart', label: 'JioMart', color: '#0A7CFF' },
       swiggyinstamart: { icon: 'swiggyinstamart', label: 'Swiggy Instamart', color: '#FC8019' },
       dunzo: { icon: 'dunzo', label: 'Dunzo', color: '#E52B50' },
+      menucard: { icon: 'menu-card', label: 'Menu Card', color: '#FF6B35' },
 
       // Ride & Transportation
       ola: { icon: 'ola', label: 'Ola', color: '#00D632' },
@@ -275,7 +276,7 @@
       email: { icon: 'email', label: 'Email', color: '#667eea', isEmail: true },
       phone: { icon: 'phone', label: 'Phone', color: '#667eea', isTel: true },
       website: { icon: 'website', label: 'Website', color: '#667eea' },
-      menucard: { icon: 'menu-card', label: 'Menu Card', color: '#667eea' },
+      businesscard: { icon: 'business-card', label: 'Business Card', color: '#667eea' },
       location: { icon: 'gmaps', label: 'Location', color: '#4285F4', isGmaps: true },
       googleReview: { icon: 'gmaps', label: 'Google Review', color: '#4285F4', isGmaps: true }
     };
@@ -374,13 +375,13 @@
           '🔧 Productivity & Tools': ['linktree', 'notion', 'calendly'],
           '💳 Payment & Donation': ['paypal', 'gpay', 'phonepe', 'paytm', 'upi', 'cashapp', 'razorpay', 'cred', 'mobikwik', 'freecharge', 'bhim', 'amazonpay', 'navi', 'jupiter', 'jiofinance'],
           '🎓 Education & Learning': ['coursera', 'udemy', 'skillshare', 'khanacademy', 'byjus', 'unacademy', 'vedantu', 'upgrad', 'physicswallah'],
-          '🍔 Food & Dining': ['swiggy', 'zomato', 'dineout', 'eatsure', 'magicpin', 'jiomart', 'swiggyinstamart', 'dunzo'],
+          '🍔 Food & Dining': ['swiggy', 'zomato', 'dineout', 'eatsure', 'magicpin', 'jiomart', 'swiggyinstamart', 'dunzo', 'menucard'],
           '🚗 Ride & Transportation': ['ola', 'uber', 'rapido', 'porter'],
           '✈️ Travel & Hospitality': ['makemytrip', 'goibibo', 'oyo', 'cleartrip', 'ixigo'],
           '🏥 Health & Wellness': ['practo', 'onemg', 'pharmeasy', 'cultfit'],
           '📚 Books & Reading': ['goodreads'],
           '🎬 Entertainment & OTT': ['jiocinema', 'hotstar', 'netflix', 'primevideo', 'sonyliv', 'zee5', 'mxplayer', 'imdb'],
-          '📞 Contact': ['email', 'phone', 'website', 'menucard', 'location', 'googleReview']
+          '📞 Contact': ['email', 'phone', 'website', 'businesscard', 'location', 'googleReview']
         };
 
         // Create categorized links
@@ -560,6 +561,54 @@
                 </a>
               `);
             }
+          }
+
+          // Render custom links for this category
+          const categoryKey = categoryName.replace(/[^\w]/g, '').toLowerCase();
+          const categoryMapping = {
+            'professional': 'professional',
+            'designcreative': 'design',
+            'socialmedia': 'social',
+            'videostreaming': 'video',
+            'musicaudio': 'music',
+            'developertech': 'developer',
+            'messagingchat': 'messaging',
+            'gaming': 'gaming',
+            'creatormonetization': 'creator',
+            'ecommerceshopping': 'ecommerce',
+            'photographyvisual': 'photography',
+            'bloggingwriting': 'blogging',
+            'othersocial': 'miscSocial',
+            'productivitytools': 'productivity',
+            'paymentdonation': 'payment',
+            'businessprofessionaltools': 'business',
+            'educationlearning': 'education',
+            'fooddining': 'food',
+            'ridetransportation': 'transportation',
+            'travelhospitality': 'travel',
+            'healthwellness': 'health',
+            'booksreading': 'books',
+            'entertainmentott': 'ott',
+            'contact': 'contact'
+          };
+
+          const mappedCategory = categoryMapping[categoryKey];
+          const customKey = `${mappedCategory}Custom`;
+          const customLinks = user[customKey];
+
+          if (customLinks && Array.isArray(customLinks) && customLinks.length > 0) {
+            customLinks.forEach(link => {
+              if (link.title && link.url) {
+                categoryLinks.push(`
+                  <a href="${link.url}" target="_blank" rel="noopener" title="${link.title}" class="social-link">
+                    <img src="./assets/icons/custom.svg" alt="${link.title}" 
+                         onerror="this.src='./assets/icons/default.svg'" 
+                         style="image-rendering: crisp-edges; -webkit-image-rendering: crisp-edges;">
+                    <span class="link-label">${link.title}</span>
+                  </a>
+                `);
+              }
+            });
           }
 
           // Only add category if it has links
