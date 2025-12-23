@@ -371,6 +371,18 @@
         </button>
       </div>
 
+      <!-- Business Services & Pricing -->
+      <div class="form-section pricing">
+        <h3>💼 Business Services & Pricing <span class="platform-count">1</span></h3>
+        <small>Share your price lists, service menus, rate cards, and pricing charts (for any business type)</small>
+        <input type="url" id="pricelist" placeholder="Price List / Service Menu - https://yourpricing.com">
+
+        <div id="pricing-custom-container" class="custom-links-container"></div>
+        <button type="button" class="add-certificate-btn" onclick="addCustomLink('pricing', '💼 Pricing')">
+          ➕ Add Custom Link
+        </button>
+      </div>
+
       <!-- Food & Dining -->
       <div class="form-section food">
         <h3>🍔 Food & Dining <span class="platform-count">9</span></h3>
@@ -547,6 +559,7 @@
       payment: ['paypal', 'gpay', 'phonepe', 'paytm', 'upi', 'cashapp', 'razorpay', 'cred', 'mobikwik', 'freecharge', 'bhim', 'amazonpay', 'navi', 'jupiter', 'jiofinance'],
       business: ['crunchbase', 'glassdoor', 'indeed', 'naukri'],
       education: ['coursera', 'udemy', 'skillshare', 'khanacademy', 'byjus', 'unacademy', 'vedantu', 'upgrad', 'physicswallah'],
+      pricing: ['pricelist'],
       food: ['swiggy', 'zomato', 'dineout', 'eatsure', 'magicpin', 'jiomart', 'swiggyinstamart', 'dunzo', 'menucard'],
       transportation: ['ola', 'uber', 'rapido', 'porter'],
       travel: ['makemytrip', 'goibibo', 'oyo', 'cleartrip', 'ixigo'],
@@ -715,7 +728,7 @@
         const categories = [
           'professional', 'design', 'social', 'video', 'music', 'developer',
           'messaging', 'gaming', 'creator', 'ecommerce', 'photography', 'blogging',
-          'miscSocial', 'productivity', 'payment', 'business', 'education',
+          'miscSocial', 'productivity', 'payment', 'business', 'education', 'pricing',
           'food', 'transportation', 'travel', 'health', 'ott', 'books', 'contact'
         ];
 
@@ -798,6 +811,9 @@
       data._comment_education = "=== EDUCATION & LEARNING ===";
       platformGroups.education.forEach(p => data[p] = document.getElementById(p)?.value.trim() || "");
 
+      data._comment_pricing = "=== BUSINESS SERVICES & PRICING ===";
+      platformGroups.pricing.forEach(p => data[p] = document.getElementById(p)?.value.trim() || "");
+
       data._comment_food = "=== FOOD & DINING ===";
       platformGroups.food.forEach(p => data[p] = document.getElementById(p)?.value.trim() || "");
 
@@ -837,7 +853,7 @@
       const categories = [
         'professional', 'design', 'social', 'video', 'music', 'developer',
         'messaging', 'gaming', 'creator', 'ecommerce', 'photography', 'blogging',
-        'miscSocial', 'productivity', 'payment', 'business', 'education',
+        'miscSocial', 'productivity', 'payment', 'business', 'education', 'pricing',
         'food', 'transportation', 'travel', 'health', 'ott', 'books', 'contact'
       ];
 
