@@ -33,6 +33,13 @@
         <input type="text" id="userCode" placeholder="User Code (auto-generated)" readonly class="readonly-input">
         <small class="form-note">🔒 User Code is auto-generated and ensures uniqueness - This is what makes each user
           unique!</small>
+
+        <label for="description" style="display: block; margin-top: 15px; margin-bottom: 5px; font-weight: 500;">📝
+          Internal Description (Admin Only)</label>
+        <textarea id="description"
+          placeholder="Add notes about this client (e.g., Business type, contact details source, special requirements). This will NOT be shown on their public profile."
+          rows="3"
+          style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; resize: vertical;"></textarea>
       </div>
 
       <!-- Professional & Business Networks -->
@@ -711,6 +718,11 @@
           document.getElementById('userCode').value = uniqueCode;
         }
 
+        // Load description if it exists
+        if (user.description) {
+          document.getElementById('description').value = user.description;
+        }
+
         // Load all platform values
         allPlatforms.forEach(platform => {
           const input = document.getElementById(platform);
@@ -756,7 +768,8 @@
       const data = {
         username: normalizedUsername,
         fullname: document.getElementById('fullname').value.trim(),
-        userCode: document.getElementById('userCode').value.trim()
+        userCode: document.getElementById('userCode').value.trim(),
+        description: document.getElementById('description').value.trim()
       };
 
       // Add comment headers for organization
